@@ -61,10 +61,6 @@ def test_run_training_loop():
 
             # Forward pass
             outputs, _ = model(features)
-            # outputs = torch.softmax(outputs, dim=-1)
-            # sampled_indices = [torch.multinomial(output, 1, replacement=True) for output in outputs]
-            # sampled_indices = torch.stack(sampled_indices).squeeze(-1)
-
             loss = loss_function(outputs.view(-1, 83), labels.view(-1))
 
             # Backward and optimize
